@@ -9,7 +9,7 @@ const CANVAS = document.getElementById('canvas');
 const CONTEXT = CANVAS.getContext('2d');
 const ROW_HEIGHT = (CANVAS.height) / 5;
 const COLUMN_WIDTH = (CANVAS.width) / 5;
-const COLOR_ARR = ['#5FCD6D', '#D3BDF0', '#77C5D4', '#DB73C0', '#CC6760', '#E3D38F'];
+const COLOR_ARR = ['#5FCD6D', '#D3BDF0', '#77C5D4', '#DB73C0', '#CC6760', '#E3D38F', '#78EBDF', '#DB90AF', '#91DB94', '#EE964B', '#F694C1', '#23A899', '#FCA17D', '#DA627D'];
 
 let imageColor;
 let imagePattenArr = [];
