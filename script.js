@@ -7,8 +7,9 @@
 
 const CANVAS = document.getElementById('canvas');
 const CONTEXT = CANVAS.getContext('2d');
-const ROW_HEIGHT = (CANVAS.height) / 5;
-const COLUMN_WIDTH = (CANVAS.width) / 5;
+const CANVAS_PADDING = 20;
+const ROW_HEIGHT = (CANVAS.height - CANVAS_PADDING) / 5;
+const COLUMN_WIDTH = (CANVAS.width - CANVAS_PADDING) / 5;
 const COLOR_ARR = ['#5FCD6D', '#D3BDF0', '#77C5D4', '#DB73C0', '#CC6760', '#E3D38F', '#78EBDF', '#DB90AF', '#91DB94', '#EE964B', '#F694C1', '#23A899', '#FCA17D', '#DA627D'];
 
 let imageColor;
@@ -33,20 +34,20 @@ function drawPattern(patternArr) {
     for (let x = 0; x < 2; x++) {
 
       if (patternArr[i][x]) {
-        fillSquare((ROW_HEIGHT * x), (COLUMN_WIDTH * i));
+        fillSquare((ROW_HEIGHT * x) + (CANVAS_PADDING / 2), (COLUMN_WIDTH * i) + (CANVAS_PADDING / 2));
       }
     }
 
     // Middle
     if (patternArr[i][2]) {
-      fillSquare((ROW_HEIGHT * (4 - 2)), (COLUMN_WIDTH * i));
+      fillSquare((ROW_HEIGHT * (4 - 2)) + (CANVAS_PADDING / 2), (COLUMN_WIDTH * i) + (CANVAS_PADDING / 2));
     }
 
     // Right - this is a reverse of the patten on the left
     for (let x = 0; x < 2; x++) {
 
       if (patternArr[i][x]) {
-        fillSquare((ROW_HEIGHT * (4 - x)), (COLUMN_WIDTH * i));
+        fillSquare((ROW_HEIGHT * (4 - x)) + (CANVAS_PADDING / 2), (COLUMN_WIDTH * i) + (CANVAS_PADDING / 2));
       }
     }
   }
