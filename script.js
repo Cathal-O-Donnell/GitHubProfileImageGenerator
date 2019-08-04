@@ -1,6 +1,5 @@
 /*
   TODO::
-    - image padding
     - export image
     - make sure image is neither full or empty
 */
@@ -16,13 +15,27 @@ let imageColor;
 let imagePattenArr = [];
 
 (function() {
+  setUpEventListeners();
   generate();
 })();
 
-function generate() {
+function setUpEventListeners() {
+  document.getElementById('btnNew').addEventListener('click', generateNew);
+}
+
+function generateNew() {
+  clearCanvas();
+  generate();
+}
+
+function clearCanvas() {
   CONTEXT.clearRect(0, 0, CANVAS.width, CANVAS.height);
+}
+
+function generate() {
   imageColor = getRandomColor();
   imagePattenArr = generatePattern();
+
   drawPattern(imagePattenArr);
 }
 
