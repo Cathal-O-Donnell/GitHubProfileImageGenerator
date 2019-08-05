@@ -1,9 +1,3 @@
-/*
-  TODO::
-    - export image
-    - make sure image is neither full or empty
-*/
-
 const CANVAS = document.getElementById('canvas');
 const CONTEXT = CANVAS.getContext('2d');
 const CANVAS_PADDING = 20;
@@ -14,6 +8,7 @@ const COLOR_ARR = ['#5FCD6D', '#D3BDF0', '#77C5D4', '#DB73C0', '#CC6760', '#E3D3
 let imageColor;
 let imagePattenArr = [];
 
+// DOM Ready
 (function() {
   setUpEventListeners();
   generate();
