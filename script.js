@@ -1,8 +1,9 @@
 const CANVAS = document.getElementById('canvas');
 const CONTEXT = CANVAS.getContext('2d');
 const CANVAS_PADDING = 20;
-const ROW_HEIGHT = (CANVAS.height - CANVAS_PADDING) / 5;
-const COLUMN_WIDTH = (CANVAS.width - CANVAS_PADDING) / 5;
+const GRID_SIZE = 5;
+const ROW_HEIGHT = (CANVAS.height - CANVAS_PADDING) / GRID_SIZE;
+const COLUMN_WIDTH = (CANVAS.width - CANVAS_PADDING) / GRID_SIZE;
 const COLOR_ARR = ['#5FCD6D', '#D3BDF0', '#77C5D4', '#DB73C0', '#CC6760', '#E3D38F', '#78EBDF', '#DB90AF', '#91DB94', '#EE964B', '#F694C1', '#23A899', '#FCA17D', '#DA627D'];
 
 let imageColor;
@@ -48,14 +49,14 @@ function drawPattern(patternArr) {
 
     // Middle
     if (patternArr[i][2]) {
-      fillSquare((ROW_HEIGHT * (4 - 2)) + (CANVAS_PADDING / 2), (COLUMN_WIDTH * i) + (CANVAS_PADDING / 2));
+      fillSquare((ROW_HEIGHT * ((patternArr.length - 1) - 2)) + (CANVAS_PADDING / 2), (COLUMN_WIDTH * i) + (CANVAS_PADDING / 2));
     }
 
     // Right - this is a reverse of the patten on the left
     for (let x = 0; x < 2; x++) {
 
       if (patternArr[i][x]) {
-        fillSquare((ROW_HEIGHT * (4 - x)) + (CANVAS_PADDING / 2), (COLUMN_WIDTH * i) + (CANVAS_PADDING / 2));
+        fillSquare((ROW_HEIGHT * ((patternArr.length - 1) - x)) + (CANVAS_PADDING / 2), (COLUMN_WIDTH * i) + (CANVAS_PADDING / 2));
       }
     }
   }
@@ -70,7 +71,7 @@ function generatePattern() {
   let resultArr = [],
     rowPatternArr = [];
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < GRID_SIZE; i++) {
     rowPatternArr = [];
 
     for (let x = 0; x < 3; x++) {
